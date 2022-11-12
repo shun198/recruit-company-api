@@ -39,3 +39,7 @@ class Company(object):
     def __str__(self) -> str:
         return f"{self.name}:{self.stock_symbol}"
 
+@pytest.fixture
+def company() -> Company:
+    return Company(name="Tesla",stock_symbol="TSLA")
+
