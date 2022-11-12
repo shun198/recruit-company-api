@@ -43,3 +43,22 @@ class Company(object):
 def company() -> Company:
     return Company(name="Tesla",stock_symbol="TSLA")
 
+def test_with_fixture(company:Company) -> None:
+    print(f"Printing {company} from fixture")
+
+@pytest.mark.parametrize(
+    "company_name",
+    ["Alibaba","Tencent","Huawei"],
+    ids=["Alibaba test","Tencent test","Huawei test"]
+)
+def test_parametrized(company_name:str) -> None:
+    print(f"\nTest with {company_name}")
+
+def raise_expection() -> None:
+    raise ValueError("Test Exception")
+
+
+def test_raise_expection_should_pass() -> None:
+    with pytest.raises(ValueError) as e:
+        raise_expection()
+    assert "Test Exception" == str(e.value)

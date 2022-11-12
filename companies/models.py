@@ -1,3 +1,4 @@
+import uuid
 from django.db import models
 
 # Create your models here.
@@ -7,6 +8,7 @@ class Company(models.Model):
         HIRING_FREEZE = 1
         LAYOFFS = 2
 
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=30, unique=True)
     status = models.IntegerField(
         choices=CompanyStatus.choices, default=CompanyStatus.HIRING

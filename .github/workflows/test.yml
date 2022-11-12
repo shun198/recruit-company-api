@@ -1,5 +1,5 @@
 name: Tests
-on: [push]
+on: [push,pull_request]
 jobs:
   test:
     name: Run Test Code
@@ -21,4 +21,11 @@ jobs:
       - name: Test
         continue-on-error: true
         run:
-          docker-compose run --rm app sh -c "poetry run python manage.py test"
+          docker-compose run --rm app sh -c "poetry run pytest -v -s"
+
+      - name: Pytest coverage comment
+        uses: MishaKav/pytest-coverage-comment@main
+        with:
+          pytest-coverage-path: ./pytest-coverage.txt
+          junitxml-path: ./pytest.xml
+          github-token: ${{ secrets.GITHUB_TOKEN }}
