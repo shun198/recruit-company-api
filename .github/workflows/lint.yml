@@ -8,7 +8,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: rickstaa/action-black@v1
         with:
-          black_args: ". --exclude==settings.py,manage.py"
+          black_args: ". --exclude=asgi.py,settings.py,wsgi.py,manage.py"
       - name: Annotate diff changes using reviewdog
         if: steps.action_black.outputs.is_formatted == 'true'
         uses: reviewdog/action-suggester@v1

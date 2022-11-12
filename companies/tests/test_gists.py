@@ -29,3 +29,13 @@ def test_dont_care_if_fails_right() -> None:
 @pytest.mark.xfail
 def test_dont_care_if_fails_wrong() -> None:
     assert 1 == 2
+
+# fixture
+class Company(object):
+    def __init__(self, name:str, stock_symbol:str):
+        self.name = name
+        self.stock_symbol = stock_symbol
+
+    def __str__(self) -> str:
+        return f"{self.name}:{self.stock_symbol}"
+
