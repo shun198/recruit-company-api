@@ -1,3 +1,4 @@
 {
-  "cSpell.words": ["because", "skipped", "Skipped", "your"]
+  "cSpell.words": ["because", "skipped", "Skipped", "your"],
+  "python.linting.enabled": true
 }

@@ -5,10 +5,6 @@ from .views import CompanyViewSet
 
 router = routers.DefaultRouter()
 # basenameを指定することでテストする際に参照できるようになる
-router.register(r"companies",CompanyViewSet,basename="companies")
+router.register(r"companies", CompanyViewSet, basename="companies")
 
-urlpatterns = [
-    path("",include(router.urls))
-]
-
-
+urlpatterns = [path("", include(router.urls))]

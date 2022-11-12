@@ -40,6 +40,12 @@ services:
     depends_on:
       db:
         condition: service_healthy
+  mail:
+    container_name: mail
+    image: schickling/mailcatcher
+    ports:
+      - "1080:1080"
+      - "1025:1025"
 volumes:
   db_data:
   static:
