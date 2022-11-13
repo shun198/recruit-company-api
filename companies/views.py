@@ -1,7 +1,6 @@
 import os
 from django.core import mail
 from django.template.loader import render_to_string
-from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework.pagination import PageNumberPagination
@@ -19,12 +18,12 @@ class CompanyViewSet(ModelViewSet):
 
 
 @api_view(["POST"])
-def send_company_email(request:Request) -> Response:
+def send_company_email(request):
     plaintext = render_to_string("../templates/welcome_email.txt")
     html_text = render_to_string("../templates/welcome_email.html")
 
     mail.send_mail(
-        subject=request.data.get("subject"),
+        subject="ようこそメール",
         message=plaintext,
         from_email="send@mail.com",
         recipient_list=["recieve@mail.com"],
