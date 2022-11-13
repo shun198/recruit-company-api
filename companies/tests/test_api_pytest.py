@@ -2,7 +2,6 @@ import json
 import pytest
 import logging
 
-from django.test import Client
 from django.urls import reverse
 
 from companies.models import Company
