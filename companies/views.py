@@ -29,4 +29,6 @@ def send_company_email(request):
         recipient_list=["recieve@mail.com"],
         html_message=html_text,
     )
-    return Response({"status":"success","info":"email sent successfully"},status=200)
+    return Response(
+        {"status": "success", "info": "email sent successfully"}, status=200
+    )
