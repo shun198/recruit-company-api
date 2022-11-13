@@ -3,28 +3,29 @@ from django.core import mail
 from django.test import TestCase, Client
 from django.template.loader import render_to_string
 from unittest.mock import patch
+import pytest
+
+
+def test_send_email_should_succeed(mailoutbox, settings) -> None:
+    settings.EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"
+    assert len(mailoutbox) == 0
+    # Send message
+    mail.send_mail(
+        subject="Test Subject",
+        message="Test Message",
+        from_email="testemail@example.com",
+        recipient_list=["testemail2@example.com"],
+        fail_silently=False,
+    )
+    # メールを一通送信
+    assert len(mailoutbox) == 1
+    # メールの件名が正しい
+    assert mailoutbox[0].subject == "Test Subject"
+
+    # Mock
 
 
 class EmailUnitTest(TestCase):
-    def test_send_email_should_succeed(self) -> None:
-        with self.settings(
-            EMAIL_BACKEND="django.core.mail.backends.locmem.EmailBackend"
-        ):
-            # Send message
-            mail.send_mail(
-                subject="Test Subject",
-                message="Test Message",
-                from_email="testemail@example.com",
-                recipient_list=["testemail2@example.com"],
-                fail_silently=False,
-            )
-            # メールを一通送信
-            self.assertEqual(len(mail.outbox), 1)
-            # メールの件名が正しい
-            self.assertEqual(mail.outbox[0].subject, "Test Subject")
-
-    # Mock
-    #
     def test_send_email_without_arguments_should_send_empty_email_without_mocking(
         self,
     ) -> None:
