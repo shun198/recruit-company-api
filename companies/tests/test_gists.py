@@ -23,13 +23,21 @@ def test_wrong_addition_if_skipped() -> None:
 # def test_wrong_addition_if_not_skipped() -> None:
 #     assert 1 == 2
 
+# テスト自体は失敗しているのでxfailed
+@pytest.mark.xfail
+def test_wrong_addition_if_not_skipped() -> None:
+    assert 1 == 2
+
+
 # 異常テスト
-# テスト自体は失敗してもいいけどGitHub Actionsを失敗させたくない
+# テスト自体は失敗してもいいけどGitHub Actionsを失敗させたくないときxfailを使う
+# テスト自体は合っているのでxpassed
 @pytest.mark.xfail
 def test_dont_care_if_fails_right() -> None:
     assert 1 == 1
 
 
+# テスト自体は失敗しているのでxfailed
 @pytest.mark.xfail
 def test_dont_care_if_fails_wrong() -> None:
     assert 1 == 2
