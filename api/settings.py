@@ -147,3 +147,16 @@ SPECTACULAR_SETTINGS = {
     # api/schemaを表示しない
     "SERVE_INCLUDE_SCHEMA": False,
 }
+
+if DEBUG:
+    EMAIL_HOST = 'mail'
+    EMAIL_HOST_USER = ''
+    EMAIL_HOST_PASSWORD = ''
+    EMAIL_PORT = 1025
+    EMAIL_USE_TLS = False
+else:
+    EMAIL_HOST = 'localhost'
+    EMAIL_POST = '8025'
+    EMAIL_HOST_USER = ''
+    EMAIL_HOST_PASSWORD = ''
+    EMAIL_USE_TLS = False
