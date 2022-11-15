@@ -1,4 +1,30 @@
 [[package]]
+name = "allure-pytest"
+version = "2.11.1"
+description = "Allure pytest integration"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+allure-python-commons = "2.11.1"
+pytest = ">=4.5.0"
+six = ">=1.9.0"
+
+[[package]]
+name = "allure-python-commons"
+version = "2.11.1"
+description = "Common module for integrate allure with python-based frameworks"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[package.dependencies]
+attrs = ">=16.0.0"
+pluggy = ">=0.4.0"
+six = ">=1.9.0"
+
+[[package]]
 name = "amqp"
 version = "5.1.1"
 description = "Low-level AMQP client for Python (fork of amqplib)."
@@ -794,9 +820,17 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "c35ec850f77a084d7ac90c81d0a06438eb1ff28e49448d0030d8a8726a2fd3ed"
+content-hash = "61c30bd0ee2fe56da8f2cdc70a756911b680f3ae60924f8f3141b0b43a7f8e0c"
 
 [metadata.files]
+allure-pytest = [
+    {file = "allure-pytest-2.11.1.tar.gz", hash = "sha256:74c692d22831943547c718a8b537d702796b91831a40bb0a319735d39e4e4a49"},
+    {file = "allure_pytest-2.11.1-py3-none-any.whl", hash = "sha256:f2c52fde399eaf4780cbbe9b44075bba8992c726f40421d998d9156622a17f22"},
+]
+allure-python-commons = [
+    {file = "allure-python-commons-2.11.1.tar.gz", hash = "sha256:a99fe845b71cd24209092b8667d4e9eed744c9310415807ae54b00463ae2d043"},
+    {file = "allure_python_commons-2.11.1-py3-none-any.whl", hash = "sha256:49f7a19a7a02cdb5b3a8be4f6bde7b302b74f1bd035f41be401f60e45931308e"},
+]
 amqp = [
     {file = "amqp-5.1.1-py3-none-any.whl", hash = "sha256:6f0956d2c23d8fa6e7691934d8c3930eadb44972cbbd1a7ae3a520f735d43359"},
     {file = "amqp-5.1.1.tar.gz", hash = "sha256:2c1b13fecc0893e946c65cbd5f36427861cffa4ea2201d8f6fca22e2a373b5e2"},
