@@ -1,4 +1,4 @@
-from datetime import datetime,timedelta
+from datetime import datetime, timedelta
 from typing import Callable
 
 import pytest
@@ -31,7 +31,7 @@ def track_performance(method: Callable, runtime_limit=timedelta(seconds=2)):
         print(f"\n runtime: {runtime.total_seconds()}")
 
         if runtime > runtime_limit:
-            raise PerformanceException(runtime=runtime,limit=runtime_limit)
+            raise PerformanceException(runtime=runtime, limit=runtime_limit)
 
         return result
 

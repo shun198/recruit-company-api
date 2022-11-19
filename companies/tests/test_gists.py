@@ -43,7 +43,7 @@ def test_dont_care_if_fails_wrong() -> None:
     assert 1 == 2
 
 
-# fixture
+# fixtures inside pytest practice files
 class Company(object):
     def __init__(self, name: str, stock_symbol: str):
         self.name = name
