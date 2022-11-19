@@ -5,7 +5,7 @@ import pytest
 from fibonacci.cached import fibonacci_cached, fibonacci_lru_cached
 from fibonacci.dynamic import fibonacci_dynamic, fibonacci_dynamic_v2
 from fibonacci.naive import fibonacci_naive
-from fixtures import time_tracker
+from conftest import time_tracker
 
 
 @pytest.mark.parametrize("n,expected", [(0, 0), (1, 1), (2, 1), (20, 6765)])
