@@ -1,0 +1,12 @@
+name: Auto Delete Merged Pull Requests
+
+on:
+  [pull_request]
+
+jobs:
+  delete-merged-pr:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Delete Merged Pull Requests
+        uses: zjutszl/delete-merged-branch-asdf@master

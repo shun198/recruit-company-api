@@ -8,3 +8,13 @@ addAssignees: author
 reviewers:
   - shun198
 
+# レビュワーをグループ別に分ける
+# reviewGroups:
+#   groupA:
+#     - reviewerA
+#     - reviewerB
+#     - reviewerC
+#   groupB:
+#     - reviewerD
+#     - reviewerE
+#     - reviewerF
