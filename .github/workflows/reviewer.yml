@@ -10,6 +10,6 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Auto Assign Reviewer
-        run: gh pr create --reviewer shun198
+        run: gh pr create --fill --reviewer shun198
         env:
           GH_TOKEN: ${{ github.token }}

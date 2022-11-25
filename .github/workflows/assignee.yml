@@ -10,6 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: auto assign author
-        run: gh pr create --assignee @me
+        run: gh pr create --fill --assignee @me
         env:
           GH_TOKEN: ${{ github.token }}
