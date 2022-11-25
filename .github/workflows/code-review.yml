@@ -22,4 +22,7 @@ jobs:
       - name: Check word that contains in pr title
         uses: actions-ecosystem/action-add-labels@v1
         if: contains((github.event.pull_request.title.contains,"GitHub Actions")
-        run: echo PR contains ${{ github.event.pull_request.title }}
+        # run: echo PR contains ${{ github.event.pull_request.title }}
+        with:
+          labels:
+            ci/cd
