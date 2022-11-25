@@ -2,16 +2,15 @@ name: Auto Assign Author To Assignee
 
 on:
   pull_request:
-    types: [opened, reopened, synchronize, ready_for_review, unassigned]
+    types: [opened, reopened, synchronize, ready_for_review]
 
 jobs:
   assign-author-to-assignee:
     if: ${{ github.event.pull_request.draft == false }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: auto assign author
-        run: gh pr create --fill --assignee @me
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - name: auto assign author to assignee
+        uses: shufo/auto-assign-reviewer-by-assignee@v1.1.0
+        with:
+          config: '.github/auto-assigner.yml'
+          token: ${{ secrets.GITHUB_TOKEN }}
