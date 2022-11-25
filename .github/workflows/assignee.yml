@@ -1,0 +1,13 @@
+name: Auto Assign Author To Assignee
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review, unassigned]
+
+jobs:
+  assign-author-to-assignee:
+    if: ${{ github.event.pull_request.draft == false }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: auto assign author
+        run: gh pr create --assignee @me
