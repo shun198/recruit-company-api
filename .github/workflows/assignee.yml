@@ -1,11 +1,11 @@
-name: Auto Assign Author To Assignee
+name: Auto Assign Assignee and Reviewer
 
 on:
   pull_request:
     types: [opened, reopened, synchronize, ready_for_review]
 
 jobs:
-  assign-author-to-assignee:
+  assign-assignee-and-reviewer:
     if: ${{ github.event.pull_request.draft == false }}
     runs-on: ubuntu-latest
     steps:
