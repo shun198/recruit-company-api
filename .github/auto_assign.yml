@@ -1,0 +1,10 @@
+# Set to true to add reviewers to pull requests
+addReviewers: true
+
+# AssigneeをPR作成者自身に設定
+addAssignees: author
+
+# GitHubのユーザ名でレビュワーを設定
+reviewers:
+  - shun198
+
