@@ -17,5 +17,9 @@ jobs:
         uses: actions/labeler@v2
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
-      - name : Print Title of PR
+      - name: Print Title of PR
         run: echo The Title of your PR is ${{ github.event.pull_request.title }}
+      - name: Check word that contains in pr title
+        uses: actions-ecosystem/action-add-labels@v1
+        if: contains((github.event.pull_request.title.contains,"GitHub Actions")
+        run: echo PR contains ${{ github.event.pull_request.title }}
